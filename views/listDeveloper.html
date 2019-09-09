@@ -1,0 +1,78 @@
+<html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<head>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid black;
+        }
+
+        body {
+            background-color: lightblue;
+        }
+    </style>
+    <font size="5px">
+
+</head>
+
+<body>
+    <h1>List Developer</h1> </br>
+    <p>
+        <a href="/">Home</a>
+        <a href="/newtask">Add new Task</a>
+        <a href="/listTask">List Task</a>
+        <a href="/newDeveloper">Add new developer</a>
+        <a href="/updateTask">Update Task</a>
+        <a href="/deleteTask">Delete Task</a>
+        <a href="/deleteAll">Delete All</a>
+
+    </p>
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Developer Id</th>
+            <th>Developer Firstname</th>
+            <th>Developer LastName</th>
+            <th>Developer Level </th>
+            <th>Developer State</th>
+            <th>Developer Suburb</th>
+            <th>Developer Street</th>
+            <th>Developer Unit</th>
+        </tr>
+        <% for (let i =0;i<developers.length;i++){ %>
+        <tr>
+            <td>
+                <%= developers[i]._id %>
+            </td>
+            <td>
+                <%= developers[i].name.firstName %>
+            </td>
+            <td>
+                <%= developers[i].name.lastName %>
+            </td>
+            <td>
+                <%= developers[i].level %>
+            </td>
+            <td>
+                <%= developers[i].address.State %>
+            </td>
+            <td>
+                <%= developers[i].address.Suburb %>
+            </td>
+            <td>
+                <%= developers[i].address.Street %>
+            </td>
+            <td>
+                <%= developers[i].address.Unit %>
+            </td>
+        </tr>
+        <% }%>
+    </table>
+
+
+</body>
+
+</html>

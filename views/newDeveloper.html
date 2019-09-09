@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <img src="add.png" />
+    <font size="5px">
+        <p>
+            <a href="/">Home</a>
+            <a href="/newtask">Add new Task</a>
+            <a href="/listTask">List Task</a>
+            <a href="/listDeveloper">List Developer</a>
+            <a href="/updateTask">Update Task</a>
+            <a href="/deleteTask">Delete Task</a>
+            <a href="/deleteAll">Delete All</a>
+        </p>
+        <h1>Enter new Developer:</h1>
+        <form action="addDeveloper" method="post">
+            DeveloperFirstName <input type="text" name="FirstName" required/><br />
+            DeveloperLastName <input type="text" name="LastName" /><br />
+            Level:
+            <select name="level" >
+               <option value="BEGINNER"> BEGINNER</option>
+               <option value="EXPERT"> EXPERT</option>
+           </select></br>
+            State <input type="text" name="State" /><br />
+            Suburb <input type="text" name="Suburb" /><br />
+            Street <input type="text" name="Street" /><br />
+            Unit <input type="number" name="Unit" /><br />
+            <button style="height: 25px;width: 80px">Submit</button>
+        </form>
+</body>
+
+</html>
