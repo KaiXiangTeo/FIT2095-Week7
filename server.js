@@ -159,4 +159,48 @@ app.get('/listDeveloper', function (req, res) {
     });
 });
 
+
+//insert many
+app.get("/insertMany", function (req, res) {
+    res.sendFile(__dirname + "/views/insertMany.html")
+});
+
+app.post('/addManytask', function (req, res) {
+    let taskDetails = new Task({
+        // TaskId: Math.round(Math.random() * 1000),
+        _id: new mongoose.Types.ObjectId(),
+        TaskName: req.body.TaskName,
+        TaskAssign: req.body.TaskAssign,
+        TaskDue: new Date(req.body.TaskDue),
+        TaskStatus: req.body.TaskStatus,
+        TaskDesc: req.body.TaskDesc,
+        TaskCount: req.body.TaskCount
+    })
+    
+    arr=[]
+    // if (req.body.TaskCount==3 && req.body.TaskName=="Task"){
+    for (let i=0;i<req.body.TaskCount;i++){
+        arr.push(req.body);
+    }
+        Task.insertMany(arr,function (err,data){
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect('/listMany');
+            }
+        });
+    // }
+    // else{
+        // res.redirect('/listMany');
+    // }
+    
+})
+
+app.get('/listMany', function (req, res) {
+    Task.find({}, function (err, data) {
+        res.render('listMany.html', {
+            tasks: data
+        });
+    });
+});
 app.listen(8080);

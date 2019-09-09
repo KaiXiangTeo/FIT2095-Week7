@@ -19,57 +19,53 @@
 </head>
 
 <body>
-    <h1>List Developer</h1> </br>
+    <h1>List Many Task</h1> </br>
     <p>
         <a href="/">Home</a>
         <a href="/newtask">Add new Task</a>
-        <a href="/listTask">List Task</a>
         <a href="/newDeveloper">Add new developer</a>
+        <a href="/listDeveloper">List Developer</a>
         <a href="/updateTask">Update Task</a>
         <a href="/deleteTask">Delete Task</a>
         <a href="/deleteAll">Delete All</a>
         <a href="/insertMany">insertMany</a>
-        <a href="/listMany">listMany</a>
+
 
 
     </p>
+    <img src="list.png" />
 
     <table class="table table-bordered table-striped">
         <tr>
-            <th>Developer Id</th>
-            <th>Developer Firstname</th>
-            <th>Developer LastName</th>
-            <th>Developer Level </th>
-            <th>Developer State</th>
-            <th>Developer Suburb</th>
-            <th>Developer Street</th>
-            <th>Developer Unit</th>
+            <th>Task ID</th>
+            <th>Task Name</th>
+            <th>Assign To </th>
+            <th>Task Due Date</th>
+            <th>Task Status</th>
+            <th>Task Description</th>
         </tr>
-        <% for (let i =0;i<developers.length;i++){ %>
+        <% for (let i =0;i<tasks.length;i++){ %>
         <tr>
             <td>
-                <%= developers[i]._id %>
+                <%= tasks[i]._id %>
             </td>
             <td>
-                <%= developers[i].name.firstName %>
+                <%= tasks[i].TaskName %>
             </td>
             <td>
-                <%= developers[i].name.lastName %>
+                <%= tasks[i].TaskAssign %>
             </td>
             <td>
-                <%= developers[i].level %>
+                <%= tasks[i].TaskDue.getDate() %> /
+                <%= tasks[i].TaskDue.getMonth() %> /
+                <%= tasks[i].TaskDue.getUTCFullYear() %> 
+             </td>
+             
+            <td>
+                <%= tasks[i].TaskStatus %>
             </td>
             <td>
-                <%= developers[i].address.State %>
-            </td>
-            <td>
-                <%= developers[i].address.Suburb %>
-            </td>
-            <td>
-                <%= developers[i].address.Street %>
-            </td>
-            <td>
-                <%= developers[i].address.Unit %>
+                <%= tasks[i].TaskDesc %>
             </td>
         </tr>
         <% }%>
