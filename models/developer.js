@@ -1,6 +1,7 @@
 let mongoose = require('mongoose');
 
 let developerSchema = mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     name: {
         firstName: {
             type: String,

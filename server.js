@@ -65,7 +65,8 @@ app.post('/addtask', function (req, res) {
 
 //list task
 app.get('/listtask', function (req, res) {
-    Task.find({}, function (err, data) {
+    Task.find({}).populate('TaskAssign').exec(function (err, data) {
+        console.log(data)
         res.render('listTask.html', {
             tasks: data
         });
@@ -127,6 +128,7 @@ app.get('/newDeveloper', function (req, res) {
 
 app.post('/addDeveloper', function (req, res) {
     let developer = new Developer({
+        _id: new mongoose.Types.ObjectId(),
         name: {
             firstName: req.body.FirstName,
             lastName: req.body.LastName
